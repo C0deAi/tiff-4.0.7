@@ -247,10 +247,10 @@ dump(int fd, uint64 diroff)
                         if (visited_diroff)
                             free(visited_diroff);
                         visited_diroff = 0;
+                      
                     }
                     else
                     {
-                        visited_diroff = (uint64*) realloc(visited_diroff,alloc_size);
                     }
                 }
 		if( !visited_diroff )
@@ -317,8 +317,9 @@ ReadDirectory(int fd, unsigned int ix, uint64 off)
 		if (read(fd, (char*) &dircount, sizeof (uint16)) != sizeof (uint16)) {
 			ReadError("directory count");
 			goto done;
-		}
-		if (swabflag)
+          
+          
+          
 			TIFFSwabShort(&dircount);
 		direntrysize = 12;
 	} else {
@@ -451,7 +452,8 @@ ReadDirectory(int fd, unsigned int ix, uint64 off)
 		{
 			if (datasizeoverflow || datasize>8)
 			{
-				datafits = 0;
+		
+              datafits = 0;
 				datamem = NULL;
 				dataoffset = *(uint64*)dp;
 				if (swabflag)
@@ -641,6 +643,9 @@ static const struct tagname {
 };
 #define	NTAGS	(sizeof (tagnames) / sizeof (tagnames[0]))
 
+
+
+static int hello;
 static void
 PrintTag(FILE* fd, uint16 tag)
 {
