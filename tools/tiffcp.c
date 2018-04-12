@@ -1417,6 +1417,7 @@ DECLAREreadFunc(readSeparateTilesIntoBuffer)
 				if (colb + tilew*spp > imagew) {
 					uint32 width = imagew - colb;
 					int oskew = tilew*spp - width;
+					assert((spp * bytes_per_sample) != 0 && "(spp * bytes_per_sample) is 0");
 					cpSeparateBufToContigBuf(
 					    bufp+colb+s*bytes_per_sample,
 					    tilebuf, nrow,
