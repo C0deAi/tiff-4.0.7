@@ -2951,7 +2951,7 @@ tsize_t Ascii85EncodeBlock( uint8 * ascii85_p, unsigned f_eod, const uint8 * raw
 
     ascii85_l = 0;                              /* Nothing written yet */
 
-    if ( raw_p )
+    if ( ascii85_p && (raw_p ))
     {
         --raw_p;                                /* Prepare for pre-increment fetches */
 
