@@ -2916,7 +2916,6 @@ extractContigSamples16bits (uint8 *in, uint8 *out, uint32 cols,
       buff1 = (buff1 & matchbits) << (src_bit);
       if (ready_bits < 8) /* add another bps bits to the buffer */
         { 
-        bytebuff = 0;
         buff2 = (buff2 | (buff1 >> ready_bits));
         }
       else /* If we have a full buffer's worth, write it out */
